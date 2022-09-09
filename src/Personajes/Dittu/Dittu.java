@@ -43,7 +43,8 @@ public class Dittu implements Personaje {
 	 * 
 	 * @return int con el valor de la vida del personaje.
 	 */
-	public int vidaDittu() {
+	@Override
+	public int getVida() {
 		return dittu.life();
 	}
 
@@ -105,4 +106,10 @@ public class Dittu implements Personaje {
 	public int damage(int damage) {
 		return dittu.damage(damage);
 	}
+
+	@Override
+	public void atack(Personaje target) {
+		target.damage(this.golpe());
+	}
+
 }

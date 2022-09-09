@@ -9,7 +9,7 @@ import Personajes.MeganMan.TiposMeganMan.MeganManNormal;
  */
 public class MeganMan implements Personaje {
 
-	/*
+	/**
 	 * Objeto de contexto.
 	 * Comenzamos siendo un MeganMan Normal.
 	 */
@@ -41,9 +41,10 @@ public class MeganMan implements Personaje {
 	/**
 	 * Metodo que nos da el valor de la vida del personaje.
 	 * 
-	 * @return double con el valor de la vida del personaje.
+	 * @return int con el valor de la vida del personaje.
 	 */
-	public double vidaMegaMan() {
+	@Override
+	public int getVida() {
 		return meganMan.life();
 	}
 
@@ -70,18 +71,18 @@ public class MeganMan implements Personaje {
 	/**
 	 * Metodo que nos da el valor de la patada del personaje.
 	 * 
-	 * @return double con el valor de la patada del personaje.
+	 * @return int con el valor de la patada del personaje.
 	 */
-	public double patadaMeganMan() {
+	public int patadaMeganMan() {
 		return meganMan.kick();
 	}
 
 	/**
 	 * Metodo que nos da el valor del bloqueo del personaje.
 	 * 
-	 * @return double con el valor del bloqueo del personaje.
+	 * @return int con el valor del bloqueo del personaje.
 	 */
-	public double bloqueoMeganMan() {
+	public int bloqueoMeganMan() {
 		return meganMan.block();
 	}
 
@@ -102,7 +103,14 @@ public class MeganMan implements Personaje {
 	 * @param damage How many lifePoints to remove.
 	 * @return int Returns remaining life points.
 	 */
+	@Override
 	public int damage(int damage) {
 		return meganMan.damage(damage);
 	}
+
+	@Override
+	public void atack(Personaje target) {
+		target.damage(this.golpe());
+	}
+
 }

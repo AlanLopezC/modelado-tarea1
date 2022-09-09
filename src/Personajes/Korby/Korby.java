@@ -41,9 +41,10 @@ public class Korby implements Personaje {
 	/**
 	 * Metodo que nos da el valor de la vida del personaje.
 	 * 
-	 * @return double con el valor de la vida del personaje.
+	 * @return int con el valor de la vida del personaje.
 	 */
-	public double vidaKorby() {
+	@Override
+	public int getVida() {
 		return korby.life();
 	}
 
@@ -79,9 +80,9 @@ public class Korby implements Personaje {
 	/**
 	 * Metodo que nos da el valor del bloqueo del personaje.
 	 * 
-	 * @return double con el valor del bloqueo del personaje.
+	 * @return int con el valor del bloqueo del personaje.
 	 */
-	public double bloqueoKorby() {
+	public int bloqueoKorby() {
 		return korby.block();
 	}
 
@@ -102,8 +103,14 @@ public class Korby implements Personaje {
 	 * @param damage How many lifePoints to remove.
 	 * @return int Returns remaining life points.
 	 */
+	@Override
 	public int damage(int damage) {
 		return korby.damage(damage);
+	}
+
+	@Override
+	public void atack(Personaje target) {
+		target.damage(this.golpe());
 	}
 
 }
